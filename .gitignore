@@ -1,0 +1,6 @@
+.env
+..gitignore.swp
+.venv/
+__pycache__/
+node_modules/
+

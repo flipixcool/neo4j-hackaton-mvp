@@ -21,13 +21,7 @@ with GraphDatabase.driver(URI, auth=AUTH) as driver:
     facts = load_material_facts("data/extracted/material_facts.json")
 
     for fact in facts:
-        service.ingest_material_fact(
-            material=fact.material,
-            prop=fact.prop,
-            kpi=fact.kpi,
-            value=fact.value,
-            unit=fact.unit,
-        )
+        service.ingest_material_fact(fact)
     reader = GraphReader(driver)
 
     result = reader.find_materials_for_kpi("Efficiency")

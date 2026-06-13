@@ -1,5 +1,4 @@
-from src.models import Material, KPI, Property
-
+from src.models import Article, Experiment, Method, Material, KPI, Property
 
 class GraphLoader:
     def __init__(self, driver):
@@ -65,4 +64,71 @@ class GraphLoader:
             """,
             property_id=prop.property_id,
             kpi_id=kpi.kpi_id,
+        )
+
+    def load_article(self, article: Article) -> None:
+        self.driver.execute_query(
+            """
+            MERGE (a:Article {article_id: $article_id})
+            SET a.title = $title
+            """,
+            article_id=article.article_id,
+            title=article.title,
+        )
+
+
+    def load_experiment(self, experiment: Experiment) -> None:
+        self.driver.execute_query(
+            """
+            MERGE (e:Experiment {experiment_id: $experiment_id})
+            SET e.name = $name
+            """,
+            experiment_id=experiment.experiment_id,
+            name=experiment.name,
+        )
+
+
+    def load_method(self, method: Method) -> None:
+        self.driver.execute_query(
+            """
+            MERGE (method:Method {method_id: $method_id})
+            SET method.name = $name
+            """,
+            method_id=method.method_id,
+            name=method.name,
+        )
+
+    def link_article_experiment(self, article: Article, experiment: Experiment) -> None:
+        self.driver.execute_query(
+            """
+            MATCH (a:Article {article_id: $article_id})
+            MATCH (e:Experiment {experiment_id: $experiment_id})
+            MERGE (a)-[:DESCRIBES]->(e)
+            """,
+            article_id=article.article_id,
+            experiment_id=experiment.experiment_id,
+        )
+
+
+    def link_experiment_method(self, experiment: Experiment, method: Method) -> None:
+        self.driver.execute_query(
+            """
+            MATCH (e:Experiment {experiment_id: $experiment_id})
+            MATCH (method:Method {method_id: $method_id})
+            MERGE (e)-[:USES]->(method)
+            """,
+            experiment_id=experiment.experiment_id,
+            method_id=method.method_id,
+        )
+
+
+    def link_experiment_material(self, experiment: Experiment, material: Material) -> None:
+        self.driver.execute_query(
+            """
+            MATCH (e:Experiment {experiment_id: $experiment_id})
+            MATCH (m:Material {material_id: $material_id})
+            MERGE (e)-[:TESTS]->(m)
+            """,
+            experiment_id=experiment.experiment_id,
+            material_id=material.material_id,
         )

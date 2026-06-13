@@ -1,21 +1,6 @@
 from pydantic import BaseModel
 
 
-class Material(BaseModel):
-    material_id: str
-    name: str
-
-
-class KPI(BaseModel):
-    kpi_id: str
-    name: str
-
-
-class Property(BaseModel):
-    property_id: str
-    name: str
-
-
 class Article(BaseModel):
     article_id: str
     title: str
@@ -28,6 +13,21 @@ class Experiment(BaseModel):
 
 class Method(BaseModel):
     method_id: str
+    name: str
+
+
+class Material(BaseModel):
+    material_id: str
+    name: str
+
+
+class KPI(BaseModel):
+    kpi_id: str
+    name: str
+
+
+class Property(BaseModel):
+    property_id: str
     name: str
 
 

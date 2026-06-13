@@ -18,7 +18,7 @@ class Property(BaseModel):
 
 class MaterialFact(BaseModel):
     material: Material
-    property: Property
+    prop: Property
     kpi: KPI
     value: float | None = None
     unit: str | None = None

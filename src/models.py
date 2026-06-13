@@ -14,3 +14,11 @@ class KPI(BaseModel):
 class Property(BaseModel):
     property_id: str
     name: str
+
+
+class MaterialFact(BaseModel):
+    material: Material
+    property: Property
+    kpi: KPI
+    value: float | None = None
+    unit: str | None = None

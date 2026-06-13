@@ -16,7 +16,25 @@ class Property(BaseModel):
     name: str
 
 
+class Article(BaseModel):
+    article_id: str
+    title: str
+
+
+class Experiment(BaseModel):
+    experiment_id: str
+    name: str
+
+
+class Method(BaseModel):
+    method_id: str
+    name: str
+
+
 class MaterialFact(BaseModel):
+    article: Article
+    experiment: Experiment
+    method: Method
     material: Material
     prop: Property
     kpi: KPI

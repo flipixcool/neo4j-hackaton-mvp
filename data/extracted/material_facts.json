@@ -1,0 +1,18 @@
+[
+    {
+        "material": {
+            "material_id": "mat_4",
+            "name": "Aluminum Alloy"
+        },
+        "property": {
+            "property_id": "prop_conductivity",
+            "name": "Conductivity"
+    },
+        "kpi": {
+            "kpi_id": "kpi_efficiency",
+            "name": "Efficiency"
+    },
+        "value": 0.78,
+        "unit": "score"
+    }
+]

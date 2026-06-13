@@ -1,5 +1,6 @@
 from src.models import Article, Experiment, Method, Material, KPI, Property
 
+
 class GraphLoader:
     def __init__(self, driver):
         self.driver = driver
@@ -76,7 +77,6 @@ class GraphLoader:
             title=article.title,
         )
 
-
     def load_experiment(self, experiment: Experiment) -> None:
         self.driver.execute_query(
             """
@@ -86,7 +86,6 @@ class GraphLoader:
             experiment_id=experiment.experiment_id,
             name=experiment.name,
         )
-
 
     def load_method(self, method: Method) -> None:
         self.driver.execute_query(
@@ -109,7 +108,6 @@ class GraphLoader:
             experiment_id=experiment.experiment_id,
         )
 
-
     def link_experiment_method(self, experiment: Experiment, method: Method) -> None:
         self.driver.execute_query(
             """
@@ -121,8 +119,9 @@ class GraphLoader:
             method_id=method.method_id,
         )
 
-
-    def link_experiment_material(self, experiment: Experiment, material: Material) -> None:
+    def link_experiment_material(
+        self, experiment: Experiment, material: Material
+    ) -> None:
         self.driver.execute_query(
             """
             MATCH (e:Experiment {experiment_id: $experiment_id})

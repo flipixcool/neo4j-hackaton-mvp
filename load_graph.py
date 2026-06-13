@@ -1,7 +1,6 @@
 from neo4j import GraphDatabase
 from dotenv import load_dotenv
 import os
-# URI examples: "neo4j://localhost", "neo4j+s://xxx.databases.neo4j.io"
 
 load_dotenv()
 

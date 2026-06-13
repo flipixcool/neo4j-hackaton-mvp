@@ -2,6 +2,7 @@ from neo4j import GraphDatabase
 from src.ingestion_service import IngestionService
 from src.graph_loader import GraphLoader
 from src.models import Material, KPI, Property
+from src.parsers.json_parser import load_material_facts
 from dotenv import load_dotenv
 import os
 
@@ -16,10 +17,15 @@ with GraphDatabase.driver(URI, auth=AUTH) as driver:
 
     loader = GraphLoader(driver=driver)
     service = IngestionService(graph_loader=loader)
+    facts = load_material_facts("data/extracted/material_facts.json")
 
-    material = Material(material_id="mat_3", name="Titanium Alloy")
-    prop = Property(property_id="prop_strength", name="Strength")
-    kpi = KPI(kpi_id="kpi_durability", name="Durability")
+    for fact in facts:
+        service.ingest_material_fact(
+            material=fact.material,
+            prop=fact.prop,
+            kpi=fact.kpi,
+            value=fact.value,
+            unit=fact.unit,
+        )
 
-    service.ingest_material_fact(material, prop, kpi, value=0.91, unit="score")
     print("Material fact ingested")

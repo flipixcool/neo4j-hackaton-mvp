@@ -2,5 +2,5 @@
 ..gitignore.swp
 .venv/
 __pycache__/
+neo4j_data/
 node_modules/
-

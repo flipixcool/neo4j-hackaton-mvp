@@ -1,28 +1,58 @@
-{
-  "article": {
-    "article_id": "art_1",
-    "title": "Conductivity study of copper alloys"
+[
+  {
+    "article": {
+      "article_id": "art_1",
+      "title": "Conductivity study of aluminum alloys"
+    },
+    "experiment": {
+      "experiment_id": "exp_1",
+      "name": "Aluminum conductivity test"
+    },
+    "method": {
+      "method_id": "method_1",
+      "name": "Lab conductivity measurement"
+    },
+    "material": {
+      "material_id": "mat_4",
+      "name": "Aluminum Alloy"
+    },
+    "prop": {
+      "property_id": "prop_conductivity",
+      "name": "Conductivity"
+    },
+    "kpi": {
+      "kpi_id": "kpi_efficiency",
+      "name": "Efficiency"
+    },
+    "value": 0.78,
+    "unit": "score"
   },
-  "experiment": {
-    "experiment_id": "exp_1",
-    "name": "Copper conductivity test"
-  },
-  "method": {
-    "method_id": "method_1",
-    "name": "Lab conductivity measurement"
-  },
-  "material": {
-    "material_id": "mat_5",
-    "name": "Copper Alloy"
-  },
-  "prop": {
-    "property_id": "prop_conductivity",
-    "name": "Conductivity"
-  },
-  "kpi": {
-    "kpi_id": "kpi_efficiency",
-    "name": "Efficiency"
-  },
-  "value": 0.92,
-  "unit": "score"
-}
+  {
+    "article": {
+      "article_id": "art_2",
+      "title": "Conductivity study of copper alloys"
+    },
+    "experiment": {
+      "experiment_id": "exp_2",
+      "name": "Copper conductivity test"
+    },
+    "method": {
+      "method_id": "method_1",
+      "name": "Lab conductivity measurement"
+    },
+    "material": {
+      "material_id": "mat_5",
+      "name": "Copper Alloy"
+    },
+    "prop": {
+      "property_id": "prop_conductivity",
+      "name": "Conductivity"
+    },
+    "kpi": {
+      "kpi_id": "kpi_efficiency",
+      "name": "Efficiency"
+    },
+    "value": 0.92,
+    "unit": "score"
+  }
+]

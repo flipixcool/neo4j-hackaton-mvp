@@ -4,7 +4,7 @@
             "material_id": "mat_4",
             "name": "Aluminum Alloy"
         },
-        "property": {
+        "prop": {
             "property_id": "prop_conductivity",
             "name": "Conductivity"
     },

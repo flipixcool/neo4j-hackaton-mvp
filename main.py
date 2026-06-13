@@ -4,6 +4,7 @@ from src.graph_loader import GraphLoader
 from src.models import Material, KPI, Property
 from src.parsers.json_parser import load_material_facts
 from dotenv import load_dotenv
+from src.graph_reader import GraphReader
 import os
 
 load_dotenv()
@@ -27,5 +28,9 @@ with GraphDatabase.driver(URI, auth=AUTH) as driver:
             value=fact.value,
             unit=fact.unit,
         )
+    reader = GraphReader(driver)
+
+    result = reader.find_materials_for_kpi("Efficiency")
+    print(result)
 
     print("Material fact ingested")
